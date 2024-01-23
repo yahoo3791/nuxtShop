@@ -1,8 +1,8 @@
 <script setup lang="ts">
 useHead({
-    title: '我的应用',
+    title: '',
     meta: [
-        { name: 'description', content: '我的神奇网站。' }
+        { name: 'description', content: '' }
     ],
     bodyAttrs: {
         class: 'test'

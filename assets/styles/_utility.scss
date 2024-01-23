@@ -1,0 +1,30 @@
+html,
+body {
+  height: 100%;
+  /*外層高度100%*/
+  margin: 0;
+}
+.wrapper {
+  min-height: calc(100vh - 75px);
+  /*外層高度100%*/
+  margin-bottom: -201px;
+  /*隨footer高度需做調整*/
+}
+.footer {
+  height: 201px;
+  /*設定footer本身高度*/
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    min-height: 100vh;
+    /*外層高度100%*/
+    margin-bottom: -160px;
+    /*隨footer高度需做調整*/
+  }
+
+  .footer {
+    height: 160px;
+    /*設定footer本身高度*/
+  }
+}
