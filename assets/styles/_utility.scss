@@ -4,10 +4,15 @@ body {
   /*外層高度100%*/
   margin: 0;
 }
+*{
+  &:focus {
+    border: 3px dotted gray !important;
+  }
+}
 .wrapper {
-  min-height: calc(100vh - 75px);
+  // min-height: calc(100vh - 75px);
   /*外層高度100%*/
-  margin-bottom: -201px;
+  // margin-bottom: -201px;
   /*隨footer高度需做調整*/
 }
 .footer {
@@ -17,11 +22,24 @@ body {
 .object-position-center {
   object-position: 50% 50%;
 }
+.accesskey.content {
+  opacity: 0;
+  position: absolute;
+  left: 2px;
+  top: 0;
+  z-index: 1;
+  color: black;
+}
+.accesskey.content:focus,
+.accesskey.content:focus-within,
+.accesskey.content:focus-visible {
+  opacity: 1 !important;
+}
 @media (max-width: 768px) {
   .wrapper {
-    min-height: 100vh;
+    // min-height: 100vh;
     /*外層高度100%*/
-    margin-bottom: -160px;
+    // margin-bottom: -160px;
     /*隨footer高度需做調整*/
   }
 

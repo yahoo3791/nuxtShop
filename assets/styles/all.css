@@ -145,10 +145,12 @@ body {
   margin: 0;
 }
 
+*:focus {
+  border: 3px dotted gray !important;
+}
+
 .wrapper {
-  min-height: calc(100vh - 75px);
   /*外層高度100%*/
-  margin-bottom: -201px;
   /*隨footer高度需做調整*/
 }
 
@@ -162,11 +164,24 @@ body {
      object-position: 50% 50%;
 }
 
+.accesskey.content {
+  opacity: 0;
+  position: absolute;
+  left: 2px;
+  top: 0;
+  z-index: 1;
+  color: black;
+}
+
+.accesskey.content:focus,
+.accesskey.content:focus-within,
+.accesskey.content:focus-visible {
+  opacity: 1 !important;
+}
+
 @media (max-width: 768px) {
   .wrapper {
-    min-height: 100vh;
     /*外層高度100%*/
-    margin-bottom: -160px;
     /*隨footer高度需做調整*/
   }
   .footer {
@@ -195,4 +210,17 @@ body {
   .swiper {
     height: 20vh;
   }
+}
+.card-title-area {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+.card-title-area h3 {
+  font-size: 1.75rem;
+  padding-bottom: 1rem;
+  font-weight: bolder;
+}
+.card-title-area p {
+  font-size: 1.3rem;
 }/*# sourceMappingURL=all.css.map */

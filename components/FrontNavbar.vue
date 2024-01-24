@@ -1,4 +1,5 @@
 <template>
+  <a class="accesskey content" href="#content" title="跳到主要內容區">跳到主要內容區</a>
   <nav class="navbar navbar-expand-lg bg-body-tertiary text-white">
     <div class="container-fluid">
       <h1>
@@ -8,6 +9,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="accesskey position-absolute" href="javascript:;" title="上方選單區" accesskey="U">:::</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#" title="首頁">首頁</a>
