@@ -12,9 +12,5 @@ useSeoMeta({
 })
 </script>
 <template>
-    <noscript>
-      <p>此網頁需要支援 JavaScript 才能正確運行，請先至你的瀏覽器設定中開啟 JavaScript。</p>
-      <p>We're sorry but DESSERT shop doesn't work properly without JavaScript enabled. Please enable it to continue.</p>
-    </noscript>
     <NuxtPage />
 </template>

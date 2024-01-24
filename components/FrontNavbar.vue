@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary text-white">
     <div class="container-fluid">
-      <a class="navbar-brand fs-1" href="#" title="DESSERT">DESSERT</a>
+      <h1>
+        <a class="navbar-brand fs-1" href="#" title="DESSERT">DESSERT</a>
+      </h1>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

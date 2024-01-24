@@ -157,6 +157,11 @@ body {
   /*設定footer本身高度*/
 }
 
+.object-position-center {
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
 @media (max-width: 768px) {
   .wrapper {
     min-height: 100vh;
@@ -167,5 +172,27 @@ body {
   .footer {
     height: 160px;
     /*設定footer本身高度*/
+  }
+}
+.swiper {
+  height: 50vh;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: white !important;
+}
+
+.sologan-bg-color {
+  background-color: rgba(36, 36, 36, 0.452);
+}
+
+@media (max-width: 768px) {
+  .swiper {
+    height: 20vh;
   }
 }/*# sourceMappingURL=all.css.map */

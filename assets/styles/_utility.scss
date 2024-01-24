@@ -14,7 +14,9 @@ body {
   height: 201px;
   /*設定footer本身高度*/
 }
-
+.object-position-center {
+  object-position: 50% 50%;
+}
 @media (max-width: 768px) {
   .wrapper {
     min-height: 100vh;
