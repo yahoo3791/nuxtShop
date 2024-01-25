@@ -35,6 +35,9 @@ body {
 .accesskey.content:focus-visible {
   opacity: 1 !important;
 }
+.my-10 {
+  margin: 6rem 0;
+}
 @media (max-width: 768px) {
   .wrapper {
     // min-height: 100vh;

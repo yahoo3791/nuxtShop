@@ -179,6 +179,10 @@ body {
   opacity: 1 !important;
 }
 
+.my-10 {
+  margin: 6rem 0;
+}
+
 @media (max-width: 768px) {
   .wrapper {
     /*外層高度100%*/
@@ -223,4 +227,23 @@ body {
 }
 .card-title-area p {
   font-size: 1.3rem;
+}
+
+.sub-bg {
+  background: center/cover no-repeat fixed url("@/assets/images/banner/subBg.png");
+  min-height: 30vh;
+  position: relative;
+}
+.sub-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.sub-bg .veefield {
+  min-height: 4vh;
+  min-width: 20vw;
 }/*# sourceMappingURL=all.css.map */

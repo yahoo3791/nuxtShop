@@ -1,4 +1,5 @@
 <template>
+    <a class="accesskey position-absolute" href="javascript:;" title="下方選單區" accesskey="B">:::</a>
     <footer class="bg-dark text-center">
         <div class="container">
             <div class="row">
