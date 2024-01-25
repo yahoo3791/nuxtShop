@@ -14,6 +14,8 @@ export default defineNuxtConfig({
     },
   },
   app: {
+        baseURL: process.env.NODE_ENV === 'production' ? '/nuxt3-generate/' : '/',
+    buildAssetsDir: '/static/',
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",

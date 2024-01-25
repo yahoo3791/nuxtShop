@@ -1,9 +1,9 @@
 <script setup>
 const { data } = useFetch("/api/foods");
-const subMail = ref('');
+const subMail = ref("");
 const subEmail = () => {
   console.log(subMail.value);
-  subMail.value = '';
+  subMail.value = "";
 };
 </script>
 
@@ -108,11 +108,10 @@ const subEmail = () => {
       </div>
     </div>
     <!-- 訂閱區塊 -->
-    <div class="sub-bg my-10 container-fulid d-flex justify-content-center align-items-center">
-      <VeeForm
-        @submit="subEmail"
-        class="position-relative"
-      >
+    <div
+      class="sub-bg my-10 container-fulid d-flex justify-content-center align-items-center"
+    >
+      <VeeForm @submit="subEmail" class="position-relative">
         <label for="subscription" class="fs-3 fw-bold">訂閱獲得即時優惠</label>
         <div class="d-flex flex-wrap justify-content-center pt-3">
           <VeeField
@@ -135,6 +134,54 @@ const subEmail = () => {
         </div>
       </VeeForm>
     </div>
+    <!-- 徵才區塊 -->
+    <div class="container text-black">
+      <div class="row flex-column-reverse flex-md-row align-items-center">
+        <div class="col-12 col-sm-6 mb-3 mb-sm-0">
+          <div class="card-body text-white text-md-end">
+            <h3 class="card-title fs-3 fw-bold">成為快遞員</h3>
+            <p class="card-text pt-3 pb-4">
+              作為送貨員，賺取有競爭力的薪水，工作靈活的時程表。
+            </p>
+            <a href="#" class="btn btn-success" title="開始賺錢">開始賺錢</a>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <img
+            class="d-block mx-auto rounded"
+            src="../public/images/recruit/delivery.jpg"
+            alt
+            style="max-width: 300px"
+          />
+        </div>
+      </div>
+      <div
+        class="row flex-column-reverse flex-md-row-reverse align-items-center"
+      >
+        <div class="col-12 col-sm-6">
+          <div class="card-body text-white">
+            <h3 class="card-title fs-3 fw-bold">成為合作夥伴</h3>
+            <p class="card-text pt-3 pb-4">通過吸引新客戶來發展您的業務。</p>
+            <a href="#" class="btn btn-warning" title="與我們合作"
+              >與我們合作</a
+            >
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <img
+            class="d-block mx-auto rounded"
+            src="../public/images/recruit/chef.jpg"
+            alt
+            style="max-width: 300px"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- 顧客回饋 -->
+    <!-- <div class="card-title-area">
+      <h3>顧客評論</h3>
+      <p></p>
+    </div> -->
   </div>
   <FrontFooter />
 </template>
