@@ -1,18 +1,24 @@
-.swiper {
+.swiper.swiper-banner {
   height: 50vh;
+}
+.swiper.swiper-custom {
+  .swiper-pagination {
+    position: relative;
+    margin-top: 5vh;
+  }
 }
 .swiper-button-prev,
 .swiper-button-next {
-    color: white !important;
+  color: white !important;
 }
 .swiper-pagination-bullet {
-    background-color: white !important;
+  background-color: white !important;
 }
 .sologan-bg-color {
-    background-color: rgba(36, 36, 36, 0.452);
+  background-color: rgba(36, 36, 36, 0.452);
 }
 @media (max-width: 768px) {
-  .swiper {
+  .swiper.swiper-banner {
     height: 20vh;
   }
 }

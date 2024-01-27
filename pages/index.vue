@@ -5,6 +5,7 @@ const subEmail = () => {
   console.log(subMail.value);
   subMail.value = "";
 };
+const value1 = ref(5);
 </script>
 
 <template>
@@ -29,6 +30,7 @@ const subEmail = () => {
         </div> -->
     <!-- 輪播區塊 -->
     <Swiper
+      class="swiper-banner"
       :modules="[
         SwiperAutoplay,
         SwiperEffectCreative,
@@ -178,10 +180,58 @@ const subEmail = () => {
       </div>
     </div>
     <!-- 顧客回饋 -->
-    <!-- <div class="card-title-area">
-      <h3>顧客評論</h3>
-      <p></p>
-    </div> -->
+    <div class="card-title-area bg-dark bg-gradient py-5">
+      <h3 class="mb-5">顧客評論</h3>
+      <div class="container">
+        <Swiper
+          class="swiper-custom"
+          :modules="[SwiperAutoplay, SwiperPagination]"
+          :loop="true"
+          :effect="'creative'"
+          :space-between="30"
+          :pagination="true"
+          :autoplay="{
+            delay: 2000,
+            disableOnInteraction: true,
+          }"
+          :breakpoints="{
+            320: {
+              slidesPerView: 1,
+            },
+            400: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            1200: {
+              slidesPerView: 4,
+            },
+            1440: {
+              slidesPerView: 5,
+            },
+          }"
+        >
+          <SwiperSlide v-for="slide in 10" :key="slide">
+            <div class="bg-white text-black text-start px-3 py-4 mb-3">
+              <el-rate v-model="value1" /><br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Praesentium, ut.
+            </div>
+            <div
+              class="card-body d-flex align-items-center justify-content-around"
+            >
+              <!-- <img src="" alt="..."> -->
+              <div class="border rounded-pill p-5"></div>
+              <p class="card-text text-white">
+                name<br />
+                <span class="fs-6">2022/5/13</span>
+              </p>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </div>
   </div>
   <FrontFooter />
 </template>

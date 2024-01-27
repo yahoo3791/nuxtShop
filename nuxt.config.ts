@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   modules: [
     "nuxt-swiper",
     "@vee-validate/nuxt",
+    "@element-plus/nuxt"
   ],
   veeValidate: {
     autoImports: true,

@@ -193,8 +193,13 @@ body {
     /*設定footer本身高度*/
   }
 }
-.swiper {
+.swiper.swiper-banner {
   height: 50vh;
+}
+
+.swiper.swiper-custom .swiper-pagination {
+  position: relative;
+  margin-top: 5vh;
 }
 
 .swiper-button-prev,
@@ -211,7 +216,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .swiper {
+  .swiper.swiper-banner {
     height: 20vh;
   }
 }

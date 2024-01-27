@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+import {
+  Search,
+} from '@element-plus/icons-vue'
+const input = ref('')
+</script>
+
 <template>
   <a class="accesskey content" href="#content" title="跳到主要內容區">跳到主要內容區</a>
   <nav class="navbar navbar-expand-lg bg-body-tertiary text-white">
@@ -38,8 +45,8 @@
             </li>
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="查詢訂單" aria-label="Search" title="輸入訂單編號">
-          <button class="btn btn-outline-success text-nowrap" type="submit" title="查詢">查詢</button>
+          <el-input class="me-2" v-model="input" type="text" placeholder="查詢訂單" aria-label="Search" title="輸入訂單編號" clearable />
+          <el-button :icon="Search" circle title="查詢" />
         </form>
       </div>
     </div>
