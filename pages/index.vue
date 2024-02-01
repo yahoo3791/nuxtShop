@@ -74,6 +74,13 @@ const value1 = ref(5);
         </a>
       </SwiperSlide>
     </Swiper>
+    <!-- 跑馬燈區塊 -->
+    <div class="marquee-container bg-dark bg-gradient">
+      <p class="marquee-content fs-5">
+        <strong>【反詐騙提醒】</strong
+        >近來詐騙猖獗，行騙手法也不斷更新，提醒您：本司不會以任何名義透過電話、簡訊或Email等方式核對銀行帳戶、信用卡卡號等私人資訊。
+      </p>
+    </div>
     <!-- 種類區塊 -->
     <div class="card-title-area">
       <a
