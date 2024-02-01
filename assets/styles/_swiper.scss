@@ -13,6 +13,18 @@
 }
 .swiper-pagination-bullet {
   background-color: white !important;
+  opacity: 0.5 !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  margin: 0 0.5rem !important;
+  &:hover,
+  &:active {
+    opacity: 1 !important;
+  }
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  box-shadow: 0 1px 1px white;
 }
 .sologan-bg-color {
   background-color: rgba(36, 36, 36, 0.452);

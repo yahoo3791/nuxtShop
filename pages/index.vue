@@ -33,30 +33,36 @@ const value1 = ref(5);
       class="swiper-banner"
       :modules="[
         SwiperAutoplay,
-        SwiperEffectCreative,
+        SwiperEffectCoverflow,
         SwiperNavigation,
         SwiperPagination,
+        SwiperKeyboard,
       ]"
       :slides-per-view="1"
       :loop="false"
-      :effect="'creative'"
+      :effect="'coverflow'"
+      :speed="2000"
       :autoplay="{
         delay: 5000,
         disableOnInteraction: true,
       }"
-      :navigation="true"
-      :pagination="true"
-      :creative-effect="{
-        prev: {
-          shadow: false,
-          translate: ['-20%', 0, -1],
-        },
-        next: {
-          translate: ['100%', 0, 0],
+      :navigation="{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }"
+      :pagination="{
+        clickable: true,
+        dynamicBullets: true,
+        renderBullet: function (index, className) {
+          return `<a href='javascript:;' title='第${
+            index + 1
+          }頁' class='${className}'><p class='sr-only'>第${
+            index + 1
+          }頁</p></a>`;
         },
       }"
     >
-      <SwiperSlide v-for="slide in 2" :key="slide">
+      <SwiperSlide v-for="slide in 5" :key="slide">
         <a href="#" title="點擊前往商品頁">
           <div class="position-absolute top-50 start-50 translate-middle">
             <span class="badge bg-warning text-dark fs-6 mb-3">
@@ -72,6 +78,12 @@ const value1 = ref(5);
             alt="店面陳列示意圖"
           />
         </a>
+        <button class="swiper-button-prev" title="上一頁">
+          <p class="sr-only">上一頁</p>
+        </button>
+        <button class="swiper-button-next" title="下一頁">
+          <p class="sr-only">下一頁</p>
+        </button>
       </SwiperSlide>
     </Swiper>
     <!-- 跑馬燈區塊 -->
@@ -134,7 +146,7 @@ const value1 = ref(5);
           />
           <button
             type="submit"
-            class="border-0 px-2 fw-bold"
+            class="border-0 px-2 ms-2 fw-bold btn btn-secondary"
             title="訂閱電子報"
           >
             訂閱
@@ -194,12 +206,22 @@ const value1 = ref(5);
           class="swiper-custom"
           :modules="[SwiperAutoplay, SwiperPagination]"
           :loop="true"
-          :effect="'creative'"
           :space-between="30"
-          :pagination="true"
+          :speed="1000"
           :autoplay="{
             delay: 2000,
             disableOnInteraction: true,
+          }"
+          :pagination="{
+            clickable: true,
+            dynamicBullets: true,
+            renderBullet: function (index, className) {
+              return `<a href='javascript:;' title='第${
+                index + 1
+              }筆' class='${className}'><p class='sr-only'>第${
+                index + 1
+              }筆</p></a>`;
+            },
           }"
           :breakpoints="{
             320: {
@@ -220,21 +242,23 @@ const value1 = ref(5);
           }"
         >
           <SwiperSlide v-for="slide in 10" :key="slide">
-            <div class="bg-white text-black text-start px-3 py-4 mb-3">
-              <el-rate v-model="value1" /><br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Praesentium, ut.
-            </div>
-            <div
-              class="card-body d-flex align-items-center justify-content-around"
-            >
-              <!-- <img src="" alt="..."> -->
-              <div class="border rounded-pill p-5"></div>
-              <p class="card-text text-white">
-                name<br />
-                <span class="fs-6">2022/5/13</span>
-              </p>
-            </div>
+            <a href="javascript:;" title="顧客評論">
+              <div class="bg-white text-black text-start px-3 py-4 mb-3">
+                <el-rate v-model="value1" disabled /><br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Praesentium, ut.
+              </div>
+              <div
+                class="card-body d-flex align-items-center justify-content-around"
+              >
+                <!-- <img src="" alt="..."> -->
+                <div class="border rounded-pill p-5"></div>
+                <p class="card-text text-white">
+                  name<br />
+                  <span class="fs-6">2022/5/13</span>
+                </p>
+              </div>
+            </a>
           </SwiperSlide>
         </Swiper>
       </div>

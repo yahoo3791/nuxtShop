@@ -5,7 +5,7 @@ body {
   /*外層高度100%*/
   margin: 0;
 }
-*{
+* {
   &:focus {
     border: 3px dotted gray !important;
   }
@@ -43,9 +43,24 @@ body {
   margin: 2rem 0;
   a,
   .el-breadcrumb__separator,
-  .el-breadcrumb__inner, .el-breadcrumb__inner.is-link {
-     color: white !important;
+  .el-breadcrumb__inner,
+  .el-breadcrumb__inner.is-link {
+    color: white !important;
   }
+}
+button {
+  background-color: transparent;
+  border: 0;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 @media (max-width: 768px) {
   .wrapper {
