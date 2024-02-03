@@ -6,6 +6,7 @@ const subEmail = () => {
   subMail.value = "";
 };
 const value1 = ref(5);
+
 </script>
 
 <template>

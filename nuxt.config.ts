@@ -1,10 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    "nuxt-swiper",
-    "@vee-validate/nuxt",
-    "@element-plus/nuxt"
-  ],
+  modules: ["nuxt-swiper", "@vee-validate/nuxt", "@element-plus/nuxt"],
+  runtimeConfig: {
+    public: {
+      api: process.env.NUXT_PUBLIC_API,
+      path: process.env.NUXT_APP_PATH,
+    },
+  },
   veeValidate: {
     autoImports: true,
     componentNames: {
@@ -15,8 +17,8 @@ export default defineNuxtConfig({
     },
   },
   app: {
-        baseURL: process.env.NODE_ENV === 'production' ? '/nuxt3-generate/' : '/',
-    buildAssetsDir: '/static/',
+    baseURL: process.env.NODE_ENV === "production" ? "/nuxt3-generate/" : "/",
+    buildAssetsDir: "/static/",
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",

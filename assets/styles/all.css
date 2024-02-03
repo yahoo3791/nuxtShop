@@ -320,4 +320,11 @@ button {
   100% {
     transform: translateX(-100vw);
   }
+}
+.productBanner {
+  margin-top: 2vh;
+  height: 20vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
 }/*# sourceMappingURL=all.css.map */
