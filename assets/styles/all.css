@@ -210,6 +210,11 @@ button {
   border: 0;
 }
 
+@media print {
+  .no-print, .no-print * {
+    display: none !important;
+  }
+}
 @media (max-width: 768px) {
   .wrapper {
     /*外層高度100%*/
@@ -327,4 +332,19 @@ button {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
+}
+
+.num-btn,
+.num-centerbtn {
+  color: black;
+  text-align: center;
+  border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.num-centerbtn {
+  border-right: 0 !important;
+  border-left: 0 !important;
+  cursor: text;
 }/*# sourceMappingURL=all.css.map */

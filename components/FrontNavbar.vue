@@ -93,7 +93,7 @@ const order = () => {
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cart" title="購物車">購物車</a>
+            <a class="nav-link" href="/carts/cartView" title="購物車">購物車</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/favorite" title="收藏">收藏</a>

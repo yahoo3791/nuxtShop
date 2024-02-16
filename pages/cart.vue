@@ -1,4 +1,0 @@
-<template>
-    <FrontNavbar />
-    <FrontFooter />
-</template>
