@@ -12,6 +12,7 @@ const getProducts = ref();
 const data = useFetch(`${public_api}api/${public_path}/products/all`).then(
   (res) => {
     getProducts.value = res.data.value.products;
+    getbreadcrumb();
   }
 );
 // const getData = async () => {
@@ -21,27 +22,37 @@ const data = useFetch(`${public_api}api/${public_path}/products/all`).then(
 // })
 // let urlId = route.params.id;
 // };
-const breadcrumbName = ref();
+const breadcrumbName = ref("全部");
 const getbreadcrumb = () => {
   switch (route.params.id) {
     case "cake":
       breadcrumbName.value = "蛋糕";
+      filterProducts("蛋糕");
       break;
     case "chocolate":
       breadcrumbName.value = "巧克力";
+      filterProducts("巧克力");
       break;
     case "brownie":
       breadcrumbName.value = "布朗尼";
+      filterProducts("布朗尼");
       break;
     case "cupcake":
       breadcrumbName.value = "杯子蛋糕";
+      filterProducts("杯子蛋糕");
       break;
     case "all":
       breadcrumbName.value = "全部商品";
+      filterProducts("");
       break;
     default:
       return;
   }
+};
+const filterProducts = (keyword) => {
+  getProducts.value = getProducts.value.filter((item) =>
+    item.category.match(keyword)
+  );
 };
 const renderCarts = () => {};
 const addCart = (item, e) => {};
@@ -55,7 +66,7 @@ const searchProducts = () => {};
 onMounted(() => {
   // getData();
   // updateFav();
-  getbreadcrumb();
+  // getbreadcrumb();
 });
 
 // const updateProducts = computed(() => {
@@ -131,14 +142,9 @@ onMounted(() => {
           <div
             class="ps-3 px-md-0 d-flex flex-wrap justify-content-end align-items-center my-3"
           >
-            <label
-              for="sort"
-              class="pe-2 pe-md-0 pb-md-1"
+            <label for="sort" class="pe-2 pe-md-0 pb-md-1"
               >顯示方法
-              <div
-                class="d-inline-block"
-                style="max-width: 300px;"
-              >
+              <div class="d-inline-block" style="max-width: 300px">
                 <select
                   name="sort"
                   id="sort"
@@ -146,15 +152,14 @@ onMounted(() => {
                   title="選擇顯示方法"
                   @change="onChange($event)"
                 >
-                  <option
-                    disabled="disabled"
-                    value=""
-                  >
-                    選擇顯示方法
-                  </option>
+                  <option disabled="disabled" value="">選擇顯示方法</option>
                   <option value="熱銷商品" title="熱銷商品">熱銷商品</option>
-                  <option value="價格排序低到高" title="價格排序低到高">價格排序低到高</option>
-                  <option value="價格排序高到低" title="價格排序高到低">價格排序高到低</option>
+                  <option value="價格排序低到高" title="價格排序低到高">
+                    價格排序低到高
+                  </option>
+                  <option value="價格排序高到低" title="價格排序高到低">
+                    價格排序高到低
+                  </option>
                 </select>
               </div>
             </label>
@@ -177,7 +182,9 @@ onMounted(() => {
           <div class="card-body">
             <h5 class="card-title">{{ item.title }}</h5>
             <p class="card-text">{{ item.content }}</p>
-            <a href="#" class="btn btn-primary" title="加入購物車">加入購物車</a>
+            <a href="#" class="btn btn-primary" title="加入購物車"
+              >加入購物車</a
+            >
           </div>
         </div>
       </div>
