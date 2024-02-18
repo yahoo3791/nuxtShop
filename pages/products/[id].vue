@@ -1,12 +1,9 @@
 <script setup lang="ts">
 const route = useRoute();
 
-// let products: globalThis.Ref<{}>
-
 const config = useRuntimeConfig();
 const public_api = config.public.api;
 const public_path = config.public.path;
-// ${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all
 
 const getProducts = ref();
 const data = useFetch(`${public_api}api/${public_path}/products/all`).then(
@@ -15,13 +12,6 @@ const data = useFetch(`${public_api}api/${public_path}/products/all`).then(
     getbreadcrumb();
   }
 );
-// const getData = async () => {
-// const api = `${public_api}api/${public_path}/products/all`;
-// const data = await useFetch(api).then(res => {
-//   console.log(res);
-// })
-// let urlId = route.params.id;
-// };
 const breadcrumbName = ref("全部");
 const getbreadcrumb = () => {
   switch (route.params.id) {
@@ -49,8 +39,9 @@ const getbreadcrumb = () => {
       return;
   }
 };
+const updateProducts = ref();
 const filterProducts = (keyword) => {
-  getProducts.value = getProducts.value.filter((item) =>
+  updateProducts.value = getProducts.value.filter((item) =>
     item.category.match(keyword)
   );
 };
@@ -60,34 +51,48 @@ const addFav = (item) => {};
 const productHistory = (id) => {};
 const more = (id) => {};
 const updateFav = () => {};
-const onChange = (e) => {};
-const searchProducts = () => {};
+const onChange = (e) => {
+  switch (e.target.value) {
+    case "熱銷商品":
+      updateProducts.value = updateProducts.value.sort((a, b) => a.num - b.num);
 
+      break;
+    case "價格排序低到高":
+      updateProducts.value = updateProducts.value.sort(
+        (a, b) => a.price - b.price
+      );
+      break;
+    case "價格排序高到低":
+      updateProducts.value = updateProducts.value.sort(
+        (a, b) => b.price - a.price
+      );
+
+      break;
+    default:
+      return;
+  }
+};
+
+const searchProducts = () => {
+  updateProducts.value = getProducts.value.filter((item) =>
+    item.title.match(message.value)
+  );
+  if (message.value == "") {
+    getbreadcrumb();
+  }
+};
+const message = ref("");
 onMounted(() => {
   // getData();
   // updateFav();
   // getbreadcrumb();
 });
-
-// const updateProducts = computed(() => {
-//   let arr = [];
-//   arr = products.value;
-//   if (clickName.value === "價格排序低到高") {
-//     arr.sort((a, b) => a.price - b.price);
-//   } else if (clickName.value === "價格排序高到低") {
-//     arr.sort((a, b) => b.price - a.price);
-//   } else if (clickName.value === "熱銷商品") {
-//     arr.sort((a, b) => a.num - b.num);
-//   }
-//   return arr;
-// });
-
 // watch(cartsNum, () => {
 //   renderCarts();
 // });
-// watch(message, () => {
-//   searchProducts();
-// });
+watch(message, () => {
+  searchProducts();
+});
 </script>
 
 <template>
@@ -116,7 +121,9 @@ onMounted(() => {
           <el-breadcrumb-item
             ><a href="/" title="首頁">首頁</a></el-breadcrumb-item
           >
-          <el-breadcrumb-item>商品</el-breadcrumb-item>
+          <el-breadcrumb-item
+            ><a href="/products/all" title="商品">商品</a></el-breadcrumb-item
+          >
           <el-breadcrumb-item>{{ breadcrumbName }}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
@@ -136,6 +143,7 @@ onMounted(() => {
                 class="w-100 border-0 bg-dark text-white border-bottom"
                 placeholder="查詢商品"
                 title="查詢商品"
+                v-model="message"
               />
             </label>
           </div>
@@ -152,7 +160,9 @@ onMounted(() => {
                   title="選擇顯示方法"
                   @change="onChange($event)"
                 >
-                  <option disabled="disabled" value="">選擇顯示方法</option>
+                  <option selected="selected" disabled="disabled" value="">
+                    選擇顯示方法
+                  </option>
                   <option value="熱銷商品" title="熱銷商品">熱銷商品</option>
                   <option value="價格排序低到高" title="價格排序低到高">
                     價格排序低到高
@@ -170,7 +180,7 @@ onMounted(() => {
     <div class="row justify-content-between">
       <div
         class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-5"
-        v-for="item in getProducts"
+        v-for="item in updateProducts"
         :key="item.id"
       >
         <div
@@ -181,6 +191,7 @@ onMounted(() => {
           <img :src="item.imageUrl" class="card-img-top" :alt="item.imageUrl" />
           <div class="card-body">
             <h5 class="card-title">{{ item.title }}</h5>
+            <p>{{ item.unit }} {{ item.price }}$</p>
             <p class="card-text">{{ item.content }}</p>
             <a href="#" class="btn btn-primary" title="加入購物車"
               >加入購物車</a
