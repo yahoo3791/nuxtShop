@@ -190,11 +190,32 @@ watch(message, () => {
         >
           <img :src="item.imageUrl" class="card-img-top" :alt="item.imageUrl" />
           <div class="card-body">
-            <h5 class="card-title">{{ item.title }}</h5>
+            <h5 class="card-title">
+              <span
+                class="badge bg-danger"
+                v-if="item.num <= 5 && item.num >= 1"
+                >HOT</span
+              >
+              <span class="badge bg-dark opacity-50" v-else-if="item.num === 0"
+                >SOLD OUT</span
+              >
+              {{ item.title }}
+            </h5>
             <p>{{ item.unit }} {{ item.price }}$</p>
             <p class="card-text">{{ item.content }}</p>
-            <a href="#" class="btn btn-primary" title="加入購物車"
+            <a
+              v-if="item.num >= 1"
+              href="#"
+              class="btn btn-primary"
+              title="加入購物車"
               >加入購物車</a
+            >
+            <a
+              v-else
+              href="javascript:;"
+              class="btn btn-dark opacity-50"
+              title="已售完"
+              >已售完</a
             >
           </div>
         </div>
