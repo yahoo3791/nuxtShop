@@ -46,10 +46,42 @@ const filterProducts = (keyword) => {
   );
 };
 const renderCarts = () => {};
-const addCart = (item, e) => {};
+const Loading = ref(true);
+const addCart = (item, e) => {
+  if (e.key == "Enter" || e.type == "click") {
+    Loading.value = false;
+    const data = {
+      product_id: item.id,
+      qty: 1,
+    };
+    $fetch(`${public_api}api/${public_path}/cart`, {
+      method: "post",
+      body: { data },
+    })
+      .then((res) => {
+        Loading.value = true;
+        ElMessage({
+          message: res.message,
+          type: "success",
+        });
+      })
+
+      .catch((res) => {
+        Loading.value = true;
+        ElMessage({
+          message: res.message,
+          type: "error",
+        });
+      });
+  }
+};
 const addFav = (item) => {};
 const productHistory = (id) => {};
-const more = (id) => {};
+const more = (id, e) => {
+  if (e.key == "Enter" || e.type == "click") {
+    useRouter().push({ path: `/products/detail/${id}` });
+  }
+};
 const updateFav = () => {};
 const onChange = (e) => {
   switch (e.target.value) {
@@ -96,6 +128,12 @@ watch(message, () => {
 </script>
 
 <template>
+  <el-table
+    class="position-fixed w-100 h-100 bg-dark opacity-25"
+    v-loading="true"
+    :class="{ 'd-none': Loading }"
+    style="z-index: 10000"
+  ></el-table>
   <FrontNavbar />
   <a
     class="accesskey position-absolute no-print start-0"
@@ -183,10 +221,12 @@ watch(message, () => {
         v-for="item in updateProducts"
         :key="item.id"
       >
-        <div
-          class="card text-black"
-          @click="more(item.id)"
-          @keydown="more(item.id)"
+        <a
+          href="javascript:;"
+          :title="`查看${item.title}`"
+          class="card text-black text-decoration-none"
+          @click="more(item.id, $event)"
+          @keydown="more(item.id, $event)"
         >
           <img :src="item.imageUrl" class="card-img-top" :alt="item.imageUrl" />
           <div class="card-body">
@@ -205,7 +245,9 @@ watch(message, () => {
             <p class="card-text">{{ item.content }}</p>
             <a
               v-if="item.num >= 1"
-              href="#"
+              @click.stop="addCart(item, $event)"
+              @keydown="addCart(item, $event)"
+              href="javascript:;"
               class="btn btn-primary"
               title="加入購物車"
               >加入購物車</a
@@ -218,7 +260,7 @@ watch(message, () => {
               >已售完</a
             >
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>

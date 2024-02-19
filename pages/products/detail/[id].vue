@@ -1,5 +1,6 @@
+<script setup>
+</script>
 <template>
-    <FrontNavbar />
-    datail
-    <FrontFooter />
+  <FrontNavbar />
+  <FrontFooter />
 </template>
