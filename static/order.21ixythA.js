@@ -1,0 +1,1 @@
+import{_ as r,a as e}from"./FrontFooter.TrmMo7UT.js";import{_}from"./_plugin-vue_export-helper.x3n3nnut.js";import{I as c,M as o,R as a,q as s}from"./swiper-vue.-1YDXCop.js";import"./entry.v7Llgchq.js";const m={};function p(f,i){const t=r,n=e;return s(),c(a,null,[o(t),o(n)],64)}const F=_(m,[["render",p]]);export{F as default};
