@@ -6,7 +6,6 @@ const subEmail = () => {
   subMail.value = "";
 };
 const value1 = ref(5);
-
 </script>
 
 <template>
@@ -64,7 +63,7 @@ const value1 = ref(5);
       }"
     >
       <SwiperSlide v-for="slide in 5" :key="slide">
-        <a href="/products/all" title="點擊前往商品頁">
+        <a href="/nuxtShop/products/all" title="點擊前往商品頁">
           <div class="position-absolute top-50 start-50 translate-middle">
             <span class="badge bg-warning text-dark fs-6 mb-3">
               全站免運費中
@@ -165,7 +164,9 @@ const value1 = ref(5);
             <p class="card-text pt-3 pb-4">
               作為送貨員，賺取有競爭力的薪水，工作靈活的時程表。
             </p>
-            <a href="/faq" class="btn btn-success" title="開始賺錢">開始賺錢</a>
+            <a href="/nuxtShop/faq" class="btn btn-success" title="開始賺錢"
+              >開始賺錢</a
+            >
           </div>
         </div>
         <div class="col-12 col-sm-6">
@@ -184,7 +185,7 @@ const value1 = ref(5);
           <div class="card-body text-white">
             <h3 class="card-title fs-3 fw-bold">成為合作夥伴</h3>
             <p class="card-text pt-3 pb-4">通過吸引新客戶來發展您的業務。</p>
-            <a href="/faq" class="btn btn-warning" title="與我們合作"
+            <a href="/nuxtShop/faq" class="btn btn-warning" title="與我們合作"
               >與我們合作</a
             >
           </div>

@@ -13,7 +13,7 @@ const order = () => {
   <nav class="navbar navbar-expand-lg bg-body-tertiary text-white">
     <div class="container-fluid">
       <h1>
-        <a class="navbar-brand fs-1" href="/" title="DESSERT">DESSERT</a>
+        <a class="navbar-brand fs-1" href="/nuxtShop" title="DESSERT">DESSERT</a>
       </h1>
       <button
         class="navbar-toggler"
@@ -36,17 +36,17 @@ const order = () => {
         >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/" title="首頁"
+            <a class="nav-link active" aria-current="page" href="/nuxtShop/" title="首頁"
               >首頁</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/faq" title="聯絡我們">聯絡我們</a>
+            <a class="nav-link" href="/nuxtShop/faq" title="聯絡我們">聯絡我們</a>
           </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
-              href="/products"
+              href="/nuxtShop/products"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -56,27 +56,27 @@ const order = () => {
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="/products/cake" title="蛋糕"
+                <a class="dropdown-item" href="/nuxtShop/products/cake" title="蛋糕"
                   >蛋糕</a
                 >
               </li>
               <li>
                 <a
                   class="dropdown-item"
-                  href="/products/chocolate"
+                  href="/nuxtShop/products/chocolate"
                   title="巧克力"
                   >巧克力</a
                 >
               </li>
               <li>
-                <a class="dropdown-item" href="/products/brownie" title="布朗尼"
+                <a class="dropdown-item" href="/nuxtShop/products/brownie" title="布朗尼"
                   >布朗尼</a
                 >
               </li>
               <li>
                 <a
                   class="dropdown-item"
-                  href="/products/cupcake"
+                  href="/nuxtShop/products/cupcake"
                   title="杯子蛋糕"
                   >杯子蛋糕</a
                 >
@@ -85,7 +85,7 @@ const order = () => {
               <li>
                 <a
                   class="dropdown-item"
-                  href="/products/all"
+                  href="/nuxtShop/products/all"
                   title="全部商品"
                   >全部商品</a
                 >
@@ -93,10 +93,10 @@ const order = () => {
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/carts/cartView" title="購物車">購物車</a>
+            <a class="nav-link" href="/nuxtShop/carts/cartView" title="購物車">購物車</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/favorite" title="收藏">收藏</a>
+            <a class="nav-link" href="/nuxtShop/favorite" title="收藏">收藏</a>
           </li>
         </ul>
         <form class="d-flex" role="search">

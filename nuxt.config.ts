@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    baseURL: process.env.NODE_ENV === "production" ? "/nuxt3-generate/" : "/",
+    baseURL: process.env.NODE_ENV === "production" ? "/nuxtShop/" : "/",
     buildAssetsDir: "/static/",
     head: {
       charset: "utf-8",

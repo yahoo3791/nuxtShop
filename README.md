@@ -1,76 +1,34 @@
-# Nuxt 3 Minimal Starter
+<h1>電商網站 - DESSERT</h1>
+<p>此專案為虛擬購物商店，銷售甜點商品，並包含前台以及後台。</p>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<h2>簡介</h2>
+<h3>前台：</h3>
+<ul>
+    <li>單一商品詳細資訊</li>
+    <li>購物車及結帳</li>
+    <li>查詢訂單資訊</li>
+    <li>切換商品排序</li>
+    <li>商品收藏</li>
+</ul>
+<h3>後台：</h3>
+<ul>
+    <li>產品管理(新增、刪除、編輯)</li>
+    <li>優惠管理(新增、刪除、編輯)</li>
+    <li>訂單管理(檢視、刪除)</li>
+</ul>
+<h2>安裝套件plugin</h2>
+<ul>
+    <li>nuxt-swiper</li>
+    <li>vee-validate</li>
+    <li>element-plus</li>
+</ul>
+<h2>專案技術</h2>
+<ul>
+    <li>Bootstrap</li>
+    <li>Sass</li>
+    <li>pnpm</li>
+    <li>Nuxt3</li>
+</ul>
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-"# nuxtShop" 
+<h2>DEMO</h2>
+<a href="https://yahoo3791.github.io/nuxtShop/">DESSERT</a>
