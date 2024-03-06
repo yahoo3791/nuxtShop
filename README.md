@@ -31,4 +31,4 @@
 </ul>
 
 <h2>DEMO</h2>
-<a href="https://yahoo3791.github.io/nuxtShop/">DESSERT</a>
+<a href="https://yahoo3791.github.io/nuxtShop/" title="點擊觀看DEMO">DESSERT</a>
