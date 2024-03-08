@@ -88,7 +88,7 @@ const addCart = (item, e) => {
             ><a href="/" title="首頁">首頁</a></el-breadcrumb-item
           >
           <el-breadcrumb-item
-            ><a href="/products/all" title="商品">商品</a></el-breadcrumb-item
+            ><a href="/nuxtShop/products/all" title="商品">商品</a></el-breadcrumb-item
           >
           <el-breadcrumb-item>內容</el-breadcrumb-item>
         </el-breadcrumb>
@@ -188,12 +188,11 @@ const addCart = (item, e) => {
             >尋找客服人員!</a
           >
         </p>
-        <p>
-          分享:
-          <a class="text-decoration-none" href="javascript:;" target="_blank">
-            <i class="bi bi-facebook fs-4" />
-          </a>
-        </p>
+        <p>分享:</p>
+        <div class="social-share" data-initialized="true">
+          <a href="#" class="social-share-icon icon-facebook" data-sharer="facebook" data-url="" title="分享至facebook(另開新視窗)"></a>
+          <a href="#" class="social-share-icon icon-twitter" data-sharer="twitter" data-url="" title="分享至twitter(另開新視窗)"></a>
+        </div>
       </div>
       <div class="col-12 col-md-9 my-5">
         <h3 class="fs-4">內容:</h3>
