@@ -10,8 +10,67 @@ const data = await useFetch(
 ).then((res) => {
   product.value = res.data.value.product;
 });
+
+const qty = ref(1);
+const changeQty = (e) => {
+  switch (e.target.outerText) {
+    case "+":
+      if (qty.value >= 50) {
+        return;
+      } else {
+        qty.value++;
+      }
+      break;
+    case "-":
+      if (qty.value <= 1) {
+        return;
+      } else {
+        qty.value--;
+      }
+      break;
+    default:
+      return;
+  }
+};
+const Loading = ref(true);
+
+const addCart = (item, e) => {
+  if (e.key == "Enter" || e.type == "click") {
+    Loading.value = false;
+    const data = {
+      product_id: product.value.id,
+      qty: qty.value,
+    };
+    $fetch(`${public_api}api/${public_path}/cart`, {
+      method: "post",
+      body: { data },
+    })
+      .then((res) => {
+        Loading.value = true;
+        ElMessage({
+          message: res.message,
+          type: "success",
+        });
+        qty.value = 1;
+      })
+      .catch((res) => {
+        Loading.value = true;
+        ElMessage({
+          message: res.message,
+          type: "error",
+        });
+        qty.value = 1;
+      });
+  }
+};
 </script>
 <template>
+  <el-table
+    class="position-fixed w-100 h-100 bg-dark opacity-25"
+    v-loading="true"
+    :class="{ 'd-none': Loading }"
+    style="z-index: 10000"
+  ></el-table>
   <FrontNavbar />
   <div class="container">
     <div class="row align-items-center">
@@ -77,8 +136,8 @@ const data = await useFetch(
           <div class="d-flex align-items-center my-3">
             <a
               href="javascript:;"
-              @click="min(item.id, key)"
-              @keydown="min(item.id, key)"
+              @click="changeQty($event)"
+              @keypress="changeQty($event)"
               class="num-btn p-2 text-white"
               title="減少"
             >
@@ -93,13 +152,13 @@ const data = await useFetch(
                 style="max-width: 120px"
                 class="num-centerbtn py-2 bg-dark text-white"
                 @change="updateQty(item.id, key)"
-                value="1"
+                :value="qty"
               />
             </label>
             <a
               href="javascript:;"
-              @click="add(item.id, key)"
-              @keydown="add(item.id, key)"
+              @click="changeQty($event)"
+              @keypress="changeQty($event)"
               class="num-btn p-2 text-white"
               title="增加"
             >
@@ -125,7 +184,7 @@ const data = await useFetch(
           >
         </div>
         <p class="pb-1 pt-2">
-          對商品有任何疑問嗎?<a href="/faq" title="尋找客服人員"
+          對商品有任何疑問嗎?<a href="/nuxtShop/faq" title="尋找客服人員"
             >尋找客服人員!</a
           >
         </p>
