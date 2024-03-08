@@ -107,7 +107,7 @@ const value1 = ref(5);
       <p>選擇你想要的，我們把它送給您</p>
     </div>
     <div class="container">
-      <div class="row g-5">
+      <div class="row gy-5">
         <div
           class="col-12 col-md-6 col-lg-3"
           v-for="card in data"

@@ -85,7 +85,7 @@ const addCart = (item, e) => {
         >
         <el-breadcrumb separator="/">
           <el-breadcrumb-item
-            ><a href="/" title="首頁">首頁</a></el-breadcrumb-item
+            ><a href="/nuxtShop/" title="首頁">首頁</a></el-breadcrumb-item
           >
           <el-breadcrumb-item
             ><a href="/nuxtShop/products/all" title="商品">商品</a></el-breadcrumb-item
